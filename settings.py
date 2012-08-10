@@ -58,7 +58,7 @@ UI_SERVER_URL = 'http://ohp_ui.herokuapp.com'
 #}
 
 # heroku
-# import dj_database_url
+import dj_database_url
 DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
 
 
