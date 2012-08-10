@@ -22,7 +22,7 @@ ADMINS = (
 SECRET_KEY = '7,VX&[8]>o29e'
 
 # absolute filepath where indivo_server is installed
-APP_HOME = '/Users/burc/Documents/Development/Indivo/indivo_server'
+APP_HOME = '/app/indivo_server'
 
 # Automatically create new records with sample data by default
 DEMO_MODE = False
@@ -38,11 +38,11 @@ DEMO_PROFILES = {
 SAMPLE_DATA_DIR = APP_HOME + '/sample_data'
 
 # URL prefix (where indivo_server will be accessible from the web)
-SITE_URL_PREFIX = "http://localhost:8000"
+SITE_URL_PREFIX = "http://ohp_server.herokuapp.com"
 
 # URL prefix for the UI server
 # (usually port 80 on the same machine)
-UI_SERVER_URL = 'http://localhost:8001'
+UI_SERVER_URL = 'http://ohp_ui.herokuapp.com'
 
 # Storage Settings
 # local
@@ -59,7 +59,7 @@ UI_SERVER_URL = 'http://localhost:8001'
 
 # heroku
 # import dj_database_url
-# DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
+DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
 
 
 # Absolute path to the directory that holds media.
