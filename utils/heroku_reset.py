@@ -125,21 +125,6 @@ else:
     
         if force_drop:
 
-            # Try dropping the database, in case it existed
-            print "Database nonexistent or corrupted, or Database drop requeseted. Attempting to drop database..."
-            try:
-                #drop_db()
-            except subprocess.CalledProcessError:
-                print "Couldn't drop database. Probably because it didn't exist."
-            
-            # Create the Database
-            print "Creating the Database..."
-            try:
-                #create_db()
-            except subprocess.CalledProcessError:
-                print "Couldn't create database. Database state likely corrupted. Exiting..."
-                exit()
-
             # Sync the Database
             print "Syncing and Migrating the database..."
             management.call_command('syncdb', verbosity=0)
