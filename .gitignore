@@ -2,6 +2,7 @@
 *.log
 *.pyc
 *.tmproj
+indivo
 *~
 *#
 utils/indivo_data.xml
