@@ -2,7 +2,10 @@
 *.log
 *.pyc
 *.tmproj
-indivo
+indivo/lib
+indivo/bin
+indivo/include
+.Python
 *~
 *#
 files/
