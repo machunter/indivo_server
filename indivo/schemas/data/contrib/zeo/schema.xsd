@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           xmlns:indivo="http://indivo.org/vocab/xml/documents#"
+           elementFormDefault="qualified" 
+           targetNamespace="http://indivo.org/vocab/xml/documents#">
+    <xs:element name="SleepStats">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="awakenings" type="xs:integer" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="awakeningsZqPoints" type="xs:integer" minOccurs="1" maxOccurs="1" />
+        <xs:element name="bedTime" type="xs:date" minOccurs="1" maxOccurs="1" />
+        <xs:element name="grouping" type="xs:string" minOccurs="1" maxOccurs="1" />
+        <xs:element name="riseTime" type="xs:datetime" minOccurs="1" maxOccurs="1" />        
+        <xs:element name="startDate" type="xs:date" minOccurs="1" maxOccurs="1" />        
+        <xs:element name="timeInDeep" type="xs:integer" minOccurs="1" maxOccurs="1" />        
+        <xs:element name="timeInDeepPercentage" type="xs:float" minOccurs="1" maxOccurs="1" />        
+        <xs:element name="timeInDeepZqPoints" type="xs:integer" minOccurs="1" maxOccurs="1" />        
+        <xs:element name="timeInLight" type="xs:integer" minOccurs="1" maxOccurs="1" />        
+        <xs:element name="timeInLightPercentage" type="xs:float" minOccurs="1" maxOccurs="1" />        
+        <xs:element name="timeInLightZqPoints" type="xs:integer" minOccurs="1" maxOccurs="1" />        
+        <xs:element name="timeInRem" type="xs:integer" minOccurs="1" maxOccurs="1" />        
+        <xs:element name="timeInRemPercentage" type="xs:float" minOccurs="1" maxOccurs="1" />        
+        <xs:element name="timeInRemZqPoints" type="xs:integer" minOccurs="1" maxOccurs="1" />        
+        <xs:element name="timeInWake" type="xs:integer" minOccurs="1" maxOccurs="1" />        
+        <xs:element name="timeInWakePercentage" type="xs:float" minOccurs="1" maxOccurs="1" />        
+        <xs:element name="timeInWakeZqPoints" type="xs:integer" minOccurs="1" maxOccurs="1" />        
+        <xs:element name="timeToZ" type="xs:integer" minOccurs="1" maxOccurs="1" />        
+        <xs:element name="totalZ" type="xs:integer" minOccurs="1" maxOccurs="1" />        
+        <xs:element name="totalZZqPoints" type="xs:integer" minOccurs="1" maxOccurs="1" />        
+        <xs:element name="zq" type="xs:integer" minOccurs="1" maxOccurs="1" />        
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
