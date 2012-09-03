@@ -64,9 +64,9 @@ MEDIA_ROOT = APP_HOME + '/indivo_files/'
 
 # Email settings
 SEND_MAIL = True # Turn email on at all?
-EMAIL_HOST = “smpt.gmail.com”
+EMAIL_HOST = 'smpt.gmail.com'
 EMAIL_PORT = 587
-EMAIL_FROM_ADDRESS = “Open Health Cloud <burc@openhealthcloud.com>”
+EMAIL_FROM_ADDRESS = 'Open Health Cloud <burc@openhealthcloud.com>'
 EMAIL_SUPPORT_ADDRESS = "burc@openhealthcloud.com"
 EMAIL_SUPPORT_NAME = "Indivo Support"
 EMAIL_HOST_USER='burc@openhealthcloud.com'
