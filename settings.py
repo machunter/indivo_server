@@ -70,7 +70,7 @@ EMAIL_FROM_ADDRESS = “Open Health Cloud <burc@openhealthcloud.com>”
 EMAIL_SUPPORT_ADDRESS = "burc@openhealthcloud.com"
 EMAIL_SUPPORT_NAME = "Indivo Support"
 EMAIL_HOST_USER='burc@openhealthcloud.com'
-EMAIL_HOST_PASSWORD='quus6poch7ghij'
+EMAIL_HOST_PASSWORD=''
 EMAIL_USE_TLS = True
 
 # Timeout before reenabling a disabled account
