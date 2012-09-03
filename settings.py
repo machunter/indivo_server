@@ -22,7 +22,7 @@ ADMINS = (
 SECRET_KEY = 'tinn7ya2wru4as6thoc8wuj7'
 
 # absolute filepath where indivo_server is installed
-APP_HOME = 'home/ubuntu/indivo/indivo_server'
+APP_HOME = '/home/ubuntu/indivo/indivo_server'
 
 # Automatically create new records with sample data by default
 DEMO_MODE = False
