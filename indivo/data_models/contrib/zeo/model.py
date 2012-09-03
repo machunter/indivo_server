@@ -4,7 +4,7 @@ from django.db import models
 #note this is brute force, not attempting to use any of the indivo existing fields
 #or to create special fields
 
-class SleepStats(Fact)
+class SleepStats(Fact):
 	awakenings 			= models.IntegerField() #The number of times the individual woke up during the period
 	awakeningsZqPoints 	= models.IntegerField() #The number of ZQ points due to awakenings
 	bedTime 			= models.DateTimeField() #A ZeoDateTime object describing the bed time
