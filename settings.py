@@ -51,7 +51,7 @@ DATABASES = {
         'NAME':'indivo',
         'USER':'indivo',
         'PASSWORD':'indivopass',
-        'HOST':'', # Set to empty string for localhost.
+        'HOST':'localhost', # Set to empty string for localhost.
         'PORT':'', # Set to empty string for default.
         },
 }
