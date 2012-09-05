@@ -1,0 +1,16 @@
+{
+  "name" : "Zeo",
+  "description" : "Push a zeo Document",
+  "author" : "burcsahinoglu",
+  "id" : "zeoZeo",
+  "version" : "1.0.0",
+  "smart_version": "0.4",
+
+  "mode" : "background",	
+  "scope": "record",
+  "has_ui": true,
+  "frameable": true,
+  "autonomous_reason": "to synchronize with Zeo in the background"
+
+  "oauth_callback_url": "/apps/labs/after_auth"
+}
