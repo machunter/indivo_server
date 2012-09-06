@@ -349,6 +349,8 @@ class Document(Object):
 
       # Update document info based on processing
       self.fqn = self.fqn if self.fqn else doc.fqn
+      logging.info("Class Document - Save - fqn:" + fqn)
+
       self.size = self.size if self.size else doc.size
       self.digest = self.digest if self.digest else doc.digest
 
