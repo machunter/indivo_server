@@ -186,8 +186,11 @@ class DocumentProcessing(object):
   def transformed_doc(self):
     try:
       if self.transform_func:
-	logging.info('transformed_doc')
+	      logging.info('transformed_doc')
         return self.transform_func(self.content_etree)
+      else:
+        logging.info('not transformed_doc')
+
     except ValueError:
       raise
     except Exception:
@@ -206,6 +209,7 @@ class DocumentProcessing(object):
 
   def validate_xml(self):
     """ Validate our doc against its XSD. """
+    logging.info('validating xml')
     try:
       if self.validation_func:
         self.validation_func(self.content_etree)
