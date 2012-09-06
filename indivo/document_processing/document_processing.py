@@ -186,11 +186,10 @@ class DocumentProcessing(object):
   def transformed_doc(self):
     try:
       if self.transform_func:
-	      logging.info('transformed_doc')
+        logging.info('transformed_doc')
         return self.transform_func(self.content_etree)
       else:
         logging.info('not transformed_doc')
-
     except ValueError:
       raise
     except Exception:
