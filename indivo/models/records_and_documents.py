@@ -7,7 +7,7 @@ from django.core.exceptions import PermissionDenied
 from django.core.files.base import ContentFile
 from django.db.models import Count
 
-import urllib, hashlib, uuid
+import urllib, hashlib, uuid, logging
 
 from base import Object, Principal, BaseModel, INDIVO_APP_LABEL
 from accounts import Account
@@ -333,7 +333,7 @@ class Document(Object):
       # import dynamically because DocumentProcessing imports DocumentSchema from this file
       from indivo.document_processing.document_processing import DocumentProcessing
       doc = DocumentProcessing(self.content, self.mime_type)
-
+      logging.info("Class Document - Save")
       # Process the Doc, if necessary
       if not self.pha and self.content:
         doc.process()
