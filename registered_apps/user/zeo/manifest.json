@@ -8,6 +8,10 @@
 
   "mode" : "background",	
   "scope": "record",
+  "has_ui": true,
+  "frameable": true,
+
+
   "autonomous_reason": "to synchronize with Zeo in the background",
   "oauth_callback_url": "/apps/labs/after_auth"
 }
