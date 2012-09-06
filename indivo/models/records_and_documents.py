@@ -335,7 +335,7 @@ class Document(Object):
       doc = DocumentProcessing(self.content, self.mime_type)
       logging.info("Class Document - Save")
       if self.pha:
-        logging.info("Class Document - Save - self.pha")
+        logging.info("Class Document - Save - self.pha" + self.pha.name)
       if self.content:
         logging.info("Class Document - Save - self.content")
       # Process the Doc, if necessary
