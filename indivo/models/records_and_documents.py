@@ -336,6 +336,7 @@ class Document(Object):
       logging.info("Class Document - Save")
       # Process the Doc, if necessary
       if not self.pha and self.content:
+        logging.info("Class Document - Save - will doc.process")
         doc.process()
 
       # Delete fact objects from the document we are replacing
