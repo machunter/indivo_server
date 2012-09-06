@@ -6,6 +6,8 @@ import os
 import sys
 import hashlib
 import re
+import logging
+
 from StringIO import StringIO
 from lxml import etree
 
@@ -52,6 +54,7 @@ class DocumentProcessing(object):
     """
     go from Allergy to http://indivo.org/vocab/xml/documents#Allergy
     """
+    logging.info("Schema:"+schema)
     if schema is None:
       return None
 
@@ -61,7 +64,7 @@ class DocumentProcessing(object):
       return "%s%s" % (DEFAULT_PREFIX, schema)
 
   def __init__(self, content, mime_type):
-
+    logging.info("Document Processing __init")
     # if mime_type is null, we assume it's XML
     self.is_binary = (mime_type and mime_type not in TEXT_MIMETYPES)
     self.is_xml = mime_type in XML_MIMETYPES
@@ -73,7 +76,7 @@ class DocumentProcessing(object):
       self.validate_xml_syntax() 
 
   def process(self):
-
+    logging.info('process()')
     # Validate the XML, if necessary
     if self.validate_p:
       self.validate_xml()
@@ -183,6 +186,7 @@ class DocumentProcessing(object):
   def transformed_doc(self):
     try:
       if self.transform_func:
+	logging.info('transformed_doc')
         return self.transform_func(self.content_etree)
     except ValueError:
       raise

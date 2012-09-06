@@ -9,6 +9,7 @@
 
 import urllib2
 import hashlib
+import logging
 
 from indivo.lib import utils
 
@@ -214,13 +215,14 @@ def _document_create(creator, content, pha, record,
     """
 
     new_doc = None
-
+    logging.debug('CREATE')
     # Overwrite content if we are replacing an existing PHA doc
     if pha and replaces_document:
         replaces_document.replace(content, mime_type)
     
     # Create new document
     else:
+	logging.debug('PHA:'+PHA)
         creator = creator.effective_principal
         doc_args = {PHA         : pha,
                     RECORD      : record,
@@ -375,7 +377,7 @@ def record_app_document_create(request, record, pha):
     :py:meth:`~indivo.views.documents.document.document_create_or_update`.
 
     """
-
+    logging.info('record_app')
     return document_create_or_update(request, pha, record=record)
 
 @commit_on_200
