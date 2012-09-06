@@ -334,11 +334,14 @@ class Document(Object):
       from indivo.document_processing.document_processing import DocumentProcessing
       doc = DocumentProcessing(self.content, self.mime_type)
       logging.info("Class Document - Save")
+      if self.pha
+        logging.info("Class Document - Save - self.pha")
+      if self.content
+        logging.info("Class Document - Save - self.content")
       # Process the Doc, if necessary
       if not self.pha and self.content:
         logging.info("Class Document - Save - will doc.process")
         doc.process()
-
       # Delete fact objects from the document we are replacing
       if self.replaces:
         from indivo.models import Fact
