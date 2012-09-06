@@ -335,7 +335,7 @@ class Document(Object):
       doc = DocumentProcessing(self.content, self.mime_type)
       logging.info("Class Document - Save")
       if self.pha:
-        logging.info("Class Document - Save - self.pha" + self.pha.name)
+        logging.info("Class Document - Save - self.pha:" + self.pha.name)
       if self.content:
         logging.info("Class Document - Save - self.content")
       # Process the Doc, if necessary
@@ -377,7 +377,8 @@ class Document(Object):
 
     # Now that we have an id, we can handle any document-processing stuff that requires an id
     if not self.processed:
-      
+      logging.info("Class Document - Save - not processed")
+  
       # save our content file if we were binary, now that we have an id.
       if cf:
         self.content_file.save(self.id, cf, save=False) # Don't force a save now, as we will resave later
