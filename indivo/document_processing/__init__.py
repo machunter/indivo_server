@@ -138,9 +138,11 @@ class IndivoSchemaLoader(object):
         for el in schema.findall("{%s}element"%XSD_NS):
             fqns.append("%s%s"% (target_ns, el.get('name')))
 
+        logging.info("fqns:"+fqns)
         return fqns
 
     def _get_validation_func_from_xsd(self, schema_dir):
+        logging.info('schema:'+schema_dir.get_full_schema_path())
         with open(schema_dir.get_full_schema_path(), 'r') as schema_file:
             schema = etree.XMLSchema(etree.parse(schema_file))
 
@@ -170,7 +172,7 @@ class IndivoSchemaLoader(object):
 
         
     def _get_transform_from_xslt(self, schema_dir):
-        logging.debug('transform_file:'+schema_dir.get_full_transform_path())
+        logging.info('transform_file:'+schema_dir.get_full_transform_path())
         with open(schema_dir.get_full_transform_path(), 'r') as transform_file:
             transform_func = etree.XSLT(etree.parse(transform_file))
             
