@@ -17,6 +17,7 @@
         <Field name="timeInLight"><xsl:value-of select='indivodoc:timeInLight/text()' /></Field>
         <Field name="timeInLightPercentage"><xsl:value-of select='indivodoc:timeInLightPercentage/text()' /></Field>
         <Field name="timeInLightZqPoints"><xsl:value-of select='indivodoc:timeInLightZqPoints/text()' /></Field>
+        <Field name="timeInRem"><xsl:value-of select='indivodoc:timeInRem/text()' /></Field>
         <Field name="timeInRemPercentage"><xsl:value-of select='indivodoc:timeInRemPercentage/text()' /></Field>
         <Field name="timeInRemZqPoints"><xsl:value-of select='indivodoc:timeInRemZqPoints/text()' /></Field>
         <Field name="timeInWake"><xsl:value-of select='indivodoc:timeInWake/text()' /></Field>
