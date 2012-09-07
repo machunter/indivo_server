@@ -158,8 +158,6 @@ class DocumentProcessing(object):
     logging.info('validation_func')
     if self.fqn and REGISTERED_SCHEMAS.has_key(self.fqn):
       logging.info('validation_func:'+self.fqn)
-      logging.info('schema:'+ REGISTERED_SCHEMAS[self.fqn][0])
-      logging.info('transform:'+ REGISTERED_SCHEMAS[self.fqn][1])
       return REGISTERED_SCHEMAS[self.fqn][0]
     return None
 
