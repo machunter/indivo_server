@@ -10,6 +10,7 @@
         <xs:element name="awakeningsZqPoints" type="xs:integer" minOccurs="1" maxOccurs="1" />
         <xs:element name="bedTime" type="xs:dateTime" minOccurs="1" maxOccurs="1" />
         <xs:element name="grouping" type="xs:string" minOccurs="1" maxOccurs="1" />
+        <xs:element name="morningFeel" type="xs:float" minOccurs="1" maxOccurs="1" />
         <xs:element name="riseTime" type="xs:dateTime" minOccurs="1" maxOccurs="1" />        
         <xs:element name="startDate" type="xs:date" minOccurs="1" maxOccurs="1" />        
         <xs:element name="timeInDeep" type="xs:integer" minOccurs="1" maxOccurs="1" />        
