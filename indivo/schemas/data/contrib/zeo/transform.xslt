@@ -8,6 +8,7 @@
         <Field name="awakeningsZqPoints"><xsl:value-of select='indivodoc:awakeningsZqPoints/text()' /></Field>
         <Field name="bedTime"><xsl:value-of select='indivodoc:bedTime/text()' /></Field>
         <Field name="grouping"><xsl:value-of select='indivodoc:grouping/text()' /></Field>
+        <Field name="morningFeel"><xsl:value-of select='indivodoc:morningFeel/text()' /></Field>
         <Field name="riseTime"><xsl:value-of select='indivodoc:riseTime/text()' /></Field>
         <Field name="startDate"><xsl:value-of select='indivodoc:startDate/text()' /></Field>
         <Field name="timeInDeep"><xsl:value-of select='indivodoc:timeInDeep/text()' /></Field>
