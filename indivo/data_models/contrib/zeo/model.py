@@ -8,8 +8,8 @@ class SleepStats(Fact):
 	awakenings 			= models.IntegerField() #The number of times the individual woke up during the period
 	awakeningsZqPoints 	= models.IntegerField() #The number of ZQ points due to awakenings
 	bedTime 			= models.DateTimeField() #A ZeoDateTime object describing the bed time
-	grouping 			= models.FloatField(max_length = 10) #The SleepStatsGrouping Enum describing the method in which the data was averaged
-	morningFeel 		= models.IntegerField() # An integer from 1-5 describing how the user felt that morning (1=bad,5=great!)
+	grouping 			= models.CharField(max_length = 10) #The SleepStatsGrouping Enum describing the method in which the data was averaged
+	morningFeel 		= models.FloatField() # An integer from 1-5 describing how the user felt that morning (1=bad,5=great!)
 	riseTime 			= models.DateTimeField() #A ZeoDateTime object describing the rise time
 	startDate 			= models.DateField() #A ZeoDate object describing the start date for the SleepStats object
 	timeInDeep 			= models.IntegerField() #The amount of time spent (in minutes) in deep sleep
