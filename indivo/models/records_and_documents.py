@@ -335,7 +335,7 @@ class Document(Object):
       doc = DocumentProcessing(self.content, self.mime_type)
       # Process the Doc, if necessary
 
-      if not self.pha and self.content:
+      if self.pha and self.content:
         doc.process()
       
       # Delete fact objects from the document we are replacing
