@@ -138,7 +138,8 @@ class IndivoSchemaLoader(object):
         for el in schema.findall("{%s}element"%XSD_NS):
             fqns.append("%s%s"% (target_ns, el.get('name')))
 
-        logging.info("fqns:"+fqns)
+        for item in fqns:
+            logging.info(item)
         return fqns
 
     def _get_validation_func_from_xsd(self, schema_dir):
