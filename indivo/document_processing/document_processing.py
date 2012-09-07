@@ -54,7 +54,6 @@ class DocumentProcessing(object):
     """
     go from Allergy to http://indivo.org/vocab/xml/documents#Allergy
     """
-    logging.info("DocumentProcessing - Schema:"+schema)
     if schema is None:
       return None
 
