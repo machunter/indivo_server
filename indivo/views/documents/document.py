@@ -221,8 +221,6 @@ def _document_create(creator, content, pha, record,
     
     # Create new document
     else:
-        logging.info('PHA:'+PHA.__class__.__name__)
-        logging.info('record:'+record.__class__.__name__)
         creator = creator.effective_principal
         doc_args = {PHA         : pha,
                     RECORD      : record,

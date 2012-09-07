@@ -337,7 +337,7 @@ class Document(Object):
       if self.pha:
         logging.info("Class Document - Save - self.pha:" + self.pha.name)
       if self.content:
-        logging.info("Class Document - Save - self.content")
+        logging.info("Class Document - Save - self.content:" + self.content)
       # Process the Doc, if necessary
       if not self.pha and self.content:
         logging.info("Class Document - Save - will doc.process")
