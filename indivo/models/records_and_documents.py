@@ -334,11 +334,6 @@ class Document(Object):
       # import dynamically because DocumentProcessing imports DocumentSchema from this file
       from indivo.document_processing.document_processing import DocumentProcessing
       doc = DocumentProcessing(self.content, self.mime_type)
-      logging.info("Class Document - Save")
-      if self.pha:
-        logging.info("Class Document - Save - self.pha:" + self.pha.name)
-      if self.content:
-        logging.info("Class Document - Save - self.content:" + self.content)
       # Process the Doc, if necessary
       if not self.pha and self.content:
         logging.info("Class Document - Save - will doc.process")
@@ -350,7 +345,6 @@ class Document(Object):
 
       # Update document info based on processing
       self.fqn = self.fqn if self.fqn else doc.fqn
-      logging.info("Class Document - Save - fqn:" + self.fqn)
 
       self.size = self.size if self.size else doc.size
       self.digest = self.digest if self.digest else doc.digest
@@ -377,16 +371,10 @@ class Document(Object):
     save_again = False
 
     # Now that we have an id, we can handle any document-processing stuff that requires an id
-    if not self.processed:
-      logging.info("Class Document - Save - not processed")
-  
+    if not self.processed:  
       # save our content file if we were binary, now that we have an id.
       if cf:
         self.content_file.save(self.id, cf, save=False) # Don't force a save now, as we will resave later
-
-      logging.info("Class Document - Before doc.process()")
-      doc.process()
-      logging.info("Class Document - After doc.process()")
 
       # We can also mark the document we are replacing as replaced by us
       if self.replaces:
@@ -396,7 +384,6 @@ class Document(Object):
       # Update newly created Fact objs, if we created any
       for fobj in doc.processed_facts:
         if fobj:
-          logging.info("Class Document - Save - fobj")
           fobj.document = self
           fobj.record = self.record
           fobj.save()
