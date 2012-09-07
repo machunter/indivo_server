@@ -158,7 +158,7 @@ class Document(Object):
   # SZ: We don't want both record AND pha to both be null
   # SZ: We need to add an integrity check for this... 
   record = models.ForeignKey(Record, related_name='documents', null=True)
-  logging.info('record_id:' + record.label)
+
   # for lightweight distributed transaction control
   # nullable for those who don't want to consider it
   # this external_id may be formatted as one of the following:
