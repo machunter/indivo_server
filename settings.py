@@ -121,7 +121,7 @@ INDIVO_ACCESS_CONTROL_EXCEPTION = "^/codes/"
 
 MANAGERS = ADMINS
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 # Local time zone for this installation. Choices can be found here:
