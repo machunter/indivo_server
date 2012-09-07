@@ -2,7 +2,7 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
            xmlns:indivo="http://indivo.org/vocab/xml/documents#"
            elementFormDefault="qualified" 
-           targetNamespace="http://indivo.org/vocab/xml/documents#SleepStats">
+           targetNamespace="http://indivo.org/vocab/xml/documents#">
     <xs:element name="SleepStats">
     <xs:complexType>
       <xs:sequence>
