@@ -215,14 +215,14 @@ def _document_create(creator, content, pha, record,
     """
 
     new_doc = None
-    logging.debug('CREATE')
     # Overwrite content if we are replacing an existing PHA doc
     if pha and replaces_document:
         replaces_document.replace(content, mime_type)
     
     # Create new document
     else:
-	logging.debug('PHA:'+PHA)
+	    logging.info('PHA:'+PHA.__class__.__name__)
+        logging.info('record:'+record.__class__.__name__)    
         creator = creator.effective_principal
         doc_args = {PHA         : pha,
                     RECORD      : record,
