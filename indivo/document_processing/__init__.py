@@ -170,7 +170,7 @@ class IndivoSchemaLoader(object):
 
         
     def _get_transform_from_xslt(self, schema_dir):
-        logging.debug('transform_file:',schema_dir.get_full_transform_path())
+        logging.debug('transform_file:'+schema_dir.get_full_transform_path())
         with open(schema_dir.get_full_transform_path(), 'r') as transform_file:
             transform_func = etree.XSLT(etree.parse(transform_file))
             
