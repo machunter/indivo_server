@@ -84,6 +84,8 @@ class DocumentProcessing(object):
     if self.process_p:
       self.processed_facts = self._process()
 
+    self.process()
+
   @property # Not a NonBinaryLazyProperty, as it depends on the value of settings.VALIDATE_XML
   def validate_p(self):
     """ Whether or not this doc needs validation.
