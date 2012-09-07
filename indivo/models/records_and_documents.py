@@ -401,7 +401,7 @@ class Document(Object):
       doc.process()
       logging.info("Class Document - After doc.process()")
       self.processed = True
-      save_again = True
+      save_again = False
 
     # If we set a temporary external_id, set it to mirror the internal id
     if self.external_id.startswith('TEMP-EXTID'):
