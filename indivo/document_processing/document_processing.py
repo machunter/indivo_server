@@ -72,7 +72,9 @@ class DocumentProcessing(object):
 
     # Validate basic XML Syntax, if required
     if self.is_xml and settings.VALIDATE_XML_SYNTAX:
-      self.validate_xml_syntax() 
+      self.validate_xml_syntax()
+
+    self.process()
 
   def process(self):
     logging.info("Document Processing process")
@@ -84,7 +86,6 @@ class DocumentProcessing(object):
     if self.process_p:
       self.processed_facts = self._process()
 
-    self.process()
 
   @property # Not a NonBinaryLazyProperty, as it depends on the value of settings.VALIDATE_XML
   def validate_p(self):
