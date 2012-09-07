@@ -155,6 +155,7 @@ class DocumentProcessing(object):
 
   @NonBinaryLazyProperty
   def validation_func(self):
+    logging.info('validation_func')
     if self.fqn and REGISTERED_SCHEMAS.has_key(self.fqn):
       logging.info('validation_func:'+self.fqn)
       logging.info('schema:'+ REGISTERED_SCHEMAS[self.fqn][0])
