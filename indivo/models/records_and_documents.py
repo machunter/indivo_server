@@ -397,7 +397,9 @@ class Document(Object):
           fobj.save()
 
       # Mark document as processed
+      logging.info("Class Document - Before doc.process()")
       doc.process()
+      logging.info("Class Document - After doc.process()")
       self.processed = True
       save_again = True
 
