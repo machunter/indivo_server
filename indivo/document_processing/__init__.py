@@ -89,7 +89,7 @@ class IndivoSchemaLoader(object):
     def register_schema(cls, schema_qn, validation_func, transformation_func):
         if REGISTERED_SCHEMAS.has_key(schema_qn):
             raise ValueError("The schema %s already exists: please choose a different name for your schema"%schema_qn)
-        logging.info("["+schema_qn+","+validation_func.__name__+","+transformation_func.__name__+"]")
+        logging.info("["+schema_qn+"]")
         REGISTERED_SCHEMAS[schema_qn] = (validation_func, transformation_func)
         
     @classmethod
@@ -170,6 +170,7 @@ class IndivoSchemaLoader(object):
 
         
     def _get_transform_from_xslt(self, schema_dir):
+        logging.debug('transform_file:',schema_dir.get_full_transform_path())
         with open(schema_dir.get_full_transform_path(), 'r') as transform_file:
             transform_func = etree.XSLT(etree.parse(transform_file))
             
