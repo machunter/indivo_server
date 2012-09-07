@@ -156,12 +156,16 @@ class DocumentProcessing(object):
   @NonBinaryLazyProperty
   def validation_func(self):
     if self.fqn and REGISTERED_SCHEMAS.has_key(self.fqn):
+      logging.info('validation_func:'+self.fqn)
+      logging.info('schema:'+ REGISTERED_SCHEMAS[self.fqn][0])
+      logging.info('transform:'+ REGISTERED_SCHEMAS[self.fqn][1])
       return REGISTERED_SCHEMAS[self.fqn][0]
     return None
 
   @NonBinaryLazyProperty
   def transform_func(self):
     if self.fqn and REGISTERED_SCHEMAS.has_key(self.fqn):
+      logging.info('transform_func:'+self.fqn)
       return REGISTERED_SCHEMAS[self.fqn][1]
     return None
 

@@ -391,6 +391,7 @@ class Document(Object):
       # Update newly created Fact objs, if we created any
       for fobj in doc.processed_facts:
         if fobj:
+          logging.info("Class Document - Save - fobj")
           fobj.document = self
           fobj.record = self.record
           fobj.save()
