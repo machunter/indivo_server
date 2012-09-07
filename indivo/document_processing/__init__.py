@@ -1,7 +1,7 @@
 """ Indivo Document Processing. """
 
 from django.conf import settings
-import sys, os
+import sys, os, logging
 import functools, inspect
 from lxml import etree
 from transform import BaseTransform
@@ -89,6 +89,7 @@ class IndivoSchemaLoader(object):
     def register_schema(cls, schema_qn, validation_func, transformation_func):
         if REGISTERED_SCHEMAS.has_key(schema_qn):
             raise ValueError("The schema %s already exists: please choose a different name for your schema"%schema_qn)
+        logging.info("["+schema_qn+","+validation_func+","+transformation_func+"]")
         REGISTERED_SCHEMAS[schema_qn] = (validation_func, transformation_func)
         
     @classmethod
