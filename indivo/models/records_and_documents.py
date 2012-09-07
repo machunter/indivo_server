@@ -406,12 +406,12 @@ class Document(Object):
     # If we set a temporary external_id, set it to mirror the internal id
     if self.external_id.startswith('TEMP-EXTID'):
       self.external_id = self.id
-      save_again = True
+      save_again = False
 
     # Make sure we point to the original document version
     if not self.original:
       self.original = self
-      save_again = True
+      save_again = False
 
     if save_again:
       self.save()
