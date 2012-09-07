@@ -63,7 +63,6 @@ class DocumentProcessing(object):
       return "%s%s" % (DEFAULT_PREFIX, schema)
 
   def __init__(self, content, mime_type):
-    logging.info("Document Processing __init__")
     # if mime_type is null, we assume it's XML
     self.is_binary = (mime_type and mime_type not in TEXT_MIMETYPES)
     self.is_xml = mime_type in XML_MIMETYPES
@@ -75,7 +74,6 @@ class DocumentProcessing(object):
       self.validate_xml_syntax()
 
   def process(self):
-    logging.info("Document Processing process")
     # Validate the XML, if necessary
     if self.validate_p:
       self.validate_xml()
@@ -95,7 +93,6 @@ class DocumentProcessing(object):
     * Are we configured to validate XML?
 
     """
-    logging.info("Document Processing validate_p")
 
     return settings.VALIDATE_XML and self.validation_func
 
@@ -108,12 +105,10 @@ class DocumentProcessing(object):
     * Can it be transformed?
 
     """
-    logging.info("Document Processing process_p")
     return self.transform_func
 
   def _process(self):
     """ Process the incoming doc """
-    logging.info("Document Processing _process")
 
     ret = []
 
@@ -138,7 +133,6 @@ class DocumentProcessing(object):
 
   @NonBinaryLazyProperty
   def content_etree(self):
-    logging.info("Document Processing content_etree")
     try:
       return etree.parse(StringIO(self.content))
     except Exception, e:
@@ -146,37 +140,30 @@ class DocumentProcessing(object):
 
   @NonBinaryLazyProperty
   def basename(self):
-    logging.info("Document Processing basename")
     if self.content_etree is not None:
       return ETREE_NS_RE.sub('', self.content_etree.getroot().tag)
     return None
 
   @NonBinaryLazyProperty
   def fqn(self):
-    logging.info("Document Processing fqn")
     if self.content_etree is not None:
       return ETREE_NS_RE.sub('\g<ns>', self.content_etree.getroot().tag)
     return None
 
   @NonBinaryLazyProperty
   def validation_func(self):
-    logging.info("Document Processing validation_func")
     if self.fqn and REGISTERED_SCHEMAS.has_key(self.fqn):
-      logging.info('validation_func:'+self.fqn)
       return REGISTERED_SCHEMAS[self.fqn][0]
     return None
 
   @NonBinaryLazyProperty
   def transform_func(self):
-    logging.info("Document Processing transform_func")
     if self.fqn and REGISTERED_SCHEMAS.has_key(self.fqn):
-      logging.info('transform_func:'+self.fqn)
       return REGISTERED_SCHEMAS[self.fqn][1]
     return None
 
   @LazyProperty
   def digest(self):
-    logging.info("Document Processing digest")
     if self.is_binary:
       return hashlib.sha1(self.content).hexdigest()
     else:
@@ -186,7 +173,6 @@ class DocumentProcessing(object):
 
   @LazyProperty
   def size(self):
-    logging.info("Document Processing size")
     if self.is_binary:
       file = ContentFile(self.content)
       return file.size
@@ -195,13 +181,9 @@ class DocumentProcessing(object):
 
   @NonBinaryLazyProperty
   def transformed_doc(self):
-    logging.info("Document Processing transformed_doc")
     try:
       if self.transform_func:
-        logging.info('transformed_doc')
         return self.transform_func(self.content_etree)
-      else:
-        logging.info('not transformed_doc')
     except ValueError:
       raise
     except Exception:
@@ -213,7 +195,6 @@ class DocumentProcessing(object):
 
   def validate_xml_syntax(self):
     """ Make sure that the incoming document is properly formatted XML, regardless of content. """
-    logging.info("Document Processing validate_xml_syntax")
     try:
       xml_etree = etree.XML(self.content)
     except Exception as e:
@@ -221,7 +202,6 @@ class DocumentProcessing(object):
 
   def validate_xml(self):
     """ Validate our doc against its XSD. """
-    logging.info('validating xml')
     try:
       if self.validation_func:
         self.validation_func(self.content_etree)

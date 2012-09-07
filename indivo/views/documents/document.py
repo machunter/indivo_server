@@ -375,7 +375,6 @@ def record_app_document_create(request, record, pha):
     :py:meth:`~indivo.views.documents.document.document_create_or_update`.
 
     """
-    logging.info('>>>>>>>>>>>>>>>>>record_app - ' + record.label + ',' + pha.name)
     return document_create_or_update(request, pha, record=record)
 
 @commit_on_200

@@ -326,7 +326,6 @@ class Document(Object):
     Handle document processing whenever a new document is created. This method
     processes the document, updates fact objects, and then saves the document
     """
-    logging.info("save:" + self.__class__.__name__)
     if self.processed:
       doc = None # Nothing to do here
 
@@ -336,8 +335,7 @@ class Document(Object):
       doc = DocumentProcessing(self.content, self.mime_type)
       # Process the Doc, if necessary
 
-      if self.pha and self.content:
-        logging.info("Class Document - Save - will doc.process")
+      if not self.pha and self.content:
         doc.process()
       
       # Delete fact objects from the document we are replacing
@@ -385,7 +383,6 @@ class Document(Object):
 
       # Update newly created Fact objs, if we created any
       for fobj in doc.processed_facts:
-        logging.info('>>>>>> We have facts to process <<<<<<<<<')
         if fobj:
           fobj.document = self
           fobj.record = self.record
