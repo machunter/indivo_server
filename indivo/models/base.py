@@ -52,7 +52,6 @@ class Object(BaseModel):
   Meta = BaseMeta(True)
 
   def save(self, **kwargs):
-    logging.info('self.__name__:' + self.__name__)
     if not self.id:
       self.id = str(uuid.uuid4())
     super(Object, self).save(**kwargs)
