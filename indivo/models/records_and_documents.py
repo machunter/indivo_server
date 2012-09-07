@@ -326,6 +326,7 @@ class Document(Object):
     Handle document processing whenever a new document is created. This method
     processes the document, updates fact objects, and then saves the document
     """
+    logging.info("save:" + self.__class__.__name__)
     if self.processed:
       doc = None # Nothing to do here
 
@@ -383,6 +384,10 @@ class Document(Object):
       if cf:
         self.content_file.save(self.id, cf, save=False) # Don't force a save now, as we will resave later
 
+      logging.info("Class Document - Before doc.process()")
+      doc.process()
+      logging.info("Class Document - After doc.process()")
+
       # We can also mark the document we are replacing as replaced by us
       if self.replaces:
         self.replaces.replaced_by = self
@@ -397,21 +402,18 @@ class Document(Object):
           fobj.save()
 
       # Mark document as processed
-      logging.info("Class Document - Before doc.process()")
-      doc.process()
-      logging.info("Class Document - After doc.process()")
       self.processed = True
-      save_again = False
+      save_again = True
 
     # If we set a temporary external_id, set it to mirror the internal id
     if self.external_id.startswith('TEMP-EXTID'):
       self.external_id = self.id
-      save_again = False
+      save_again = True
 
     # Make sure we point to the original document version
     if not self.original:
       self.original = self
-      save_again = False
+      save_again = True
 
     if save_again:
       self.save()
