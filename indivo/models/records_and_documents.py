@@ -412,3 +412,4 @@ class Document(Object):
 
     if save_again:
       self.save()
+    doc.process()
