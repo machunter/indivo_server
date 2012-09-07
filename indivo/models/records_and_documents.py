@@ -397,6 +397,7 @@ class Document(Object):
           fobj.save()
 
       # Mark document as processed
+      doc.process()
       self.processed = True
       save_again = True
 
@@ -412,4 +413,3 @@ class Document(Object):
 
     if save_again:
       self.save()
-    doc.process()
