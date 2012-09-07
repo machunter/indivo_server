@@ -74,8 +74,6 @@ class DocumentProcessing(object):
     if self.is_xml and settings.VALIDATE_XML_SYNTAX:
       self.validate_xml_syntax()
 
-    self.process()
-
   def process(self):
     logging.info("Document Processing process")
     # Validate the XML, if necessary
