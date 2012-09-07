@@ -1,4 +1,4 @@
-import uuid
+import uuid, logging
 
 from lxml import etree
 
@@ -44,7 +44,10 @@ class Fact(BaseModel):
             # Just raise the first failure
             error_field, errors = e.message_dict.popitem()
             raise ValueError("%s object didn't validate: %s -- %s"%(self.__class__.__name__, error_field, errors[0]))
+        logging.info(">>>>> Saving Fact ++++++")
         super(Fact, self).save(**kwargs)
+        logging.info("<<<<< Saving Fact ++++++")
+
 
     @classmethod
     def to_json(cls, queryset, result_count, record=None, carenet=None):
